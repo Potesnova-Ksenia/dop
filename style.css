@@ -89,7 +89,7 @@ p {
     padding: 60px 20px; /* Уменьшили верхние и нижние отступы */
     color: white;
     text-align: center;
-    background-image: url('D:/3 курс/1 сем/ВД/6 лаба сайт/слайд/фото 3.jpg'); /* Задний фон для второй секции */
+    background-image: url('фото 3.jpg'); /* Задний фон для второй секции */
     background-size: cover;
     background-position: center;
 }
