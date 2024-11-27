@@ -10,14 +10,13 @@ body {
     text-align: center;
 }
 
-/* Стили для первого слайда */
 .hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('фото 5.jpg'); 
+    background-image: url('C:/Users/Ксения/OneDrive/Рабочий стол/фото 2.jpg'); 
     background-size: cover;
     background-position: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -32,20 +31,21 @@ h1 {
 h2 {
     font-family: 'Lora', serif; 
     font-size: 2em;
-    margin-bottom: -1px;
+    margin-bottom: 20px;
     color: rgba(255, 255, 255, 0.9); 
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.7);
 }
 
 h4 {
     font-family: 'Lora', serif; 
     font-size: 2em;
-    margin-bottom: -1px;
+    margin-bottom: 20px;
     color: rgba(255, 255, 255, 0.9); 
 }
 
 p {
-    font-size: 1.1em;
-    margin-bottom: 30px;
+    font-size: 1.2em; 
+    margin-bottom: 20px;
 }
 
 .cta-button {
@@ -83,20 +83,19 @@ p {
     text-decoration: underline;
 }
 
-/* Стили для секции "Мои достижения" */
 .achievements {
     background-color: #444;
-    padding: 60px 20px; /* Уменьшили верхние и нижние отступы */
+    padding: 60px 20px;
     color: white;
     text-align: center;
-    background-image: url('фото 3.jpg'); /* Задний фон для второй секции */
+    background-image: url('D:/3 курс/1 сем/ВД/6 лаба сайт/слайд/фото 3.jpg'); 
     background-size: cover;
     background-position: center;
 }
 
 .achievement-card {
     background-color: rgba(85, 85, 85, 0.8);
-    margin:40px;
+    margin: 40px;
     padding: 20px;
     border-radius: 20px;
     flex: 1;
@@ -113,6 +112,10 @@ p {
     margin-bottom: 10px;
 }
 
+.achievement-card:hover {
+    transform: scale(1.1); 
+}
+
 .achievement-card h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -123,22 +126,6 @@ p {
     margin-bottom: 20px;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 10px 40px;
-    background-color: #847aa7;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background-color: #7266b6;
-}
-
 .achievements-container {
     display: flex;
     flex-wrap: wrap;
@@ -146,9 +133,53 @@ p {
     align-items: center; 
 }
 
-@media (max-width: 768px) {
-    .achievements-container {
-        flex-direction: column;
-        align-items: center;
-    }
+.technologies {
+    background-color: #555; 
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
 }
+
+.grid-container {
+    display: flex; /* Используем flexbox для управления расположением карточек */
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на следующую строку */
+    justify-content: space-between; /* Распределяет карточки с равными промежутками */
+    gap: 20px; /* Отступы между карточками */
+}
+
+.card {
+    background-color: rgba(85, 85, 85, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 calc(20% - 20px); /* Устанавливаем ширину карточек */
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Убедитесь, что изображения не превышают размеры карточек */
+.card img {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    width: 50px; /* Можно увеличить, если хотите */
+    height: 50px; /* Можно увеличить, если хотите */
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 1 100%; /* На мобильных устройствах карточки занимают 100% ширины */
+    }
+
+    .card img {
+        width: 100%; /* Изображения занимают всю ширину карточки на мобильных устройствах */
+    }
+}  
