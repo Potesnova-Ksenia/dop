@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('C:/Users/Ксения/OneDrive/Рабочий стол/фото 2.jpg'); 
+    background-image: url('фото 2.jpg'); 
     background-size: cover;
     background-position: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -88,7 +88,7 @@ p {
     padding: 60px 20px;
     color: white;
     text-align: center;
-    background-image: url('D:/3 курс/1 сем/ВД/6 лаба сайт/слайд/фото 3.jpg'); 
+    background-image: url('фото 3.jpg'); 
     background-size: cover;
     background-position: center;
 }
@@ -100,6 +100,7 @@ p {
     border-radius: 20px;
     flex: 1;
     display: flex;
+    border: 2px solid #5f5a5a; 
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s;
@@ -141,27 +142,28 @@ p {
 }
 
 .grid-container {
-    display: flex; /* Используем flexbox для управления расположением карточек */
-    flex-wrap: wrap; /* Позволяет карточкам переноситься на следующую строку */
-    justify-content: space-between; /* Распределяет карточки с равными промежутками */
-    gap: 20px; /* Отступы между карточками */
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between; 
+    gap: 20px; 
 }
 
 .card {
-    background-color: rgba(85, 85, 85, 0.8);
+    background: linear-gradient(to right, rgba(186, 118, 99, 0.8), rgba(202, 149, 91, 0.8), rgba(110, 92, 85, 0.8));
     border-radius: 10px;
     padding: 20px;
-    flex: 1 1 calc(20% - 20px); /* Устанавливаем ширину карточек */
+    flex: 1 1 calc(20% - 20px); 
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid #332f2f; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
 
-/* Убедитесь, что изображения не превышают размеры карточек */
 .card img {
-    width: 100%; /* Изображение занимает всю ширину карточки */
-    height: auto; /* Сохраняем пропорции изображения */
+    width: 100%; 
+    height: auto; 
 }
 
 .card:hover {
@@ -169,17 +171,19 @@ p {
 }
 
 .icon {
-    width: 50px; /* Можно увеличить, если хотите */
-    height: 50px; /* Можно увеличить, если хотите */
+    width: 50px; 
+    height: 50px; 
     margin-bottom: 15px;
 }
 
+
 @media (max-width: 768px) {
-    .card {
-        flex: 0 1 100%; /* На мобильных устройствах карточки занимают 100% ширины */
+    .card,
+    .achievement-card {
+        flex: 0 1 100%; 
     }
 
-    .card img {
-        width: 100%; /* Изображения занимают всю ширину карточки на мобильных устройствах */
+    .grid-container {
+        justify-content: center; 
     }
-}  
+}
