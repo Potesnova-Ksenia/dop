@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('фото 5.jpg'); 
+    background-image: url('C:/Users/Ксения/OneDrive/Рабочий стол/фото 2.jpg'); 
     background-size: cover;
     background-position: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -88,7 +88,7 @@ p {
     padding: 60px 20px;
     color: white;
     text-align: center;
-    background-image: url('фото 3.jpg'); 
+    background-image: url('D:/3 курс/1 сем/ВД/6 лаба сайт/слайд/фото 3.jpg'); 
     background-size: cover;
     background-position: center;
 }
@@ -177,14 +177,19 @@ p {
 }
 
 @media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .card,
     .achievement-card {
         flex: 0 1 100%; 
         margin: 10px 0; 
     }
 
-    .grid-container {
-        grid-template-columns: 1fr; 
-        justify-content: center; 
+    .navbar a {
+        flex: 1 1 45%; 
+        margin: 5px;
+        text-align: center; 
     }
 }
