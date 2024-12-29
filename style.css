@@ -9,14 +9,46 @@ body {
     color: white; 
     text-align: center;
 }
+.header { 
+     width: 100%; 
+     background-color: rgba(0, 0, 0, 0.8); 
+     display: flex; 
+     justify-content: space-between;
+      align-items: center; 
+      padding: 10px 20px; 
+      position: fixed; 
+      top: 0; left: 0; 
+      z-index: 1000; }
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 30px; 
+    font-size: 1.1em;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
 
 .hero {
+    
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('C:/Users/Ксения/OneDrive/Рабочий стол/фото 2.jpg'); 
+    background-image: url('фото 5.jpg'); 
     background-size: cover;
     background-position: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -48,6 +80,13 @@ p {
     margin-bottom: 20px;
 }
 
+
+.navbar-icon {
+    width: 60px;
+    height: 45px; 
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
@@ -62,33 +101,72 @@ p {
     background-color: #AD49E1;
 }
 
-.navbar {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+.burger {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute; 
+    right: 20px; 
+    top: 20px; 
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 30px; 
-    font-size: 1.1em;
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: purple; 
+    margin: 4px 0;
+    transition: 0.4s;
 }
 
-.navbar a:hover {
-    text-decoration: underline;
+@media (max-width: 768px) {
+    .navbar {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        padding: 10px 0;
+    }
+
+
+    .navbar a {
+        padding: 10px 20px;
+    }
+    .navbar-icon {
+        display: none; 
+    }
+
+    .burger {
+        display: flex; 
+        font-size: 24px;
+    cursor: pointer;
+    }
+}
+
+.burger.toggle .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.toggle .line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.navbar.active {
+    display: flex; 
 }
 
 .achievements {
-    background-color: #444;
+    background-color: #eca7a7;
     padding: 60px 20px;
     color: white;
     text-align: center;
-    background-image: url('D:/3 курс/1 сем/ВД/6 лаба сайт/слайд/фото 3.jpg'); 
+    background-image: url('фото 3.jpg'); 
     background-size: cover;
     background-position: center;
 }
@@ -176,12 +254,43 @@ p {
     margin-bottom: 15px;
 }
 
+.feedback {
+    background-color: #707070;
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+}
+
+.feedback form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback label {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.feedback input, .feedback textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.feedback button {
+    align-self: center;
+}
+
 @media (max-width: 768px) {
+    
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .card,
+    .card
     .achievement-card {
         flex: 0 1 100%; 
         margin: 10px 0; 
