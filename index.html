@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сайт-визитка</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div class="navbar">
+    <div class="burger" id="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="navbar" id="navbar">
+        <img src="фото 01.png" alt="Иконка" class="navbar-icon">
         <a href="#about">Мои достижения</a>
         <a href="#services">Услуги</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#testimonials">Отзывы</a>
-        <a href="#blog">Прайс</a>
+        <a href="#portfolio">Технологии и инструменты</a>
+        <a href="#testimonials">Отзыв</a>
         <a href="#contact">Контакты</a>
     </div>
     <div class="hero">
@@ -23,7 +28,6 @@
         <a href="https://vk.com/21ksusha" class="cta-button">Связаться со мной</a>
     </div>
 
-   
     <div class="achievements" id="about">
         <h4>Мои достижения</h4>
         <div class="achievements-container">
@@ -31,38 +35,37 @@
                 <img src="фото 1.jpg" alt="Достижение 1">
                 <h3>Васильева Дарья</h3>
                 <p>Свадебная фотосессия. На данной фотосессии невеста готовилась к торжественному событию. Она примеряла прекрасное платье, позировала с подругами, которые поддерживали её и делились радостью</p>
-                <button class="cta-button">Подробнее</button>
+                <a href="https://www.instagram.com/vassilleva6?igsh=MXRlZnU4NTFwdG1qOA==" class="cta-button">Подробнее</a>
             </div>
             <div class="achievement-card">
                 <img src="фото 2.jpg" alt="Достижение 2">
                 <h3>Агеявич Виктория</h3>
                 <p>Индивидуальная фотосессия. Фотосессия проходила в живописном парке в осенний солнечный день. Яркие цвета природы, улыбка девушки и теплый свет создали идеальные условия для съемки</p>
-                <button class="cta-button">Подробнее</button>
+                <a href="https://www.instagram.com/victoriaageyavich?igsh=MXNhMm8zeHRnMHhvNw==" class="cta-button">Подробнее</a>
             </div>
             <div class="achievement-card">
                 <img src="фото 4.jpg" alt="Достижение 3">
                 <h3>Глебко Дарья</h3>
                 <p>Индивидуальная фотосессия. Эта фотосессия проходила на живописном берегу озера, где спокойная вода отражала красоту окружающей природы. Наша модель была в великолепной атласной юбке</p>
-                <button class="cta-button">Подробнее</button>
+                <a href="https://www.instagram.com/manressaaa?igsh=MW1mZW4zdXQzMmdzYg==" class="cta-button">Подробнее</a>
             </div>
         </div>
     </div>
 
-   
-    <div class="technologies" id="technologies">
+    <div class="technologies" id="portfolio">
         <h4>Технологии и инструменты</h4>
         <div class="grid-container">
             <div class="card">
                 <img src="фото 9.jpg" alt="Adobe Photoshop" class="icon">
                 <h3>Постановка кадра</h3>
-                <p>Знаю основы композиции. На фотографиях все смотристя гармонично и  эстетично</p>
+                <p>Знаю основы композиции. На фотографиях все смотристя гармонично и эстетично</p>
             </div>
             <div class="card">
                 <img src="фото 6.png" alt="Adobe Lightroom" class="icon">
                 <h3>Владение фоторедакторами</h3>
                 <p>Для обработки и организации фотографий, я использую различные фоторедакторы</p>
             </div>
-                <div class="card">
+            <div class="card">
                 <img src="фото 10.jpg" alt="Освещение" class="icon">
                 <h3>Камера</h3>
                 <p>Использую только качественную технику и большое количество различных объективов</p>
@@ -75,5 +78,58 @@
         </div>
     </div>
 
+    <div class="feedback" id="testimonials">
+        <h4>Форма обратной связи</h4>
+        <form action="https://getform.io/f/agddgvgb" method="POST" id="feedbackForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit" class="cta-button">Отправить</button>
+        </form>
+        <div id="formResponse"></div>
+    </div>
+
+    <script>
+        
+        const burger = document.getElementById('burger');
+        const navbar = document.getElementById('navbar');
+
+        burger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            burger.classList.toggle('toggle');
+        });
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('formResponse').innerHTML = "Спасибо за ваш отзыв!";
+                    this.reset(); 
+                } else {
+                    document.getElementById('formResponse').innerHTML = "Произошла ошибка, попробуйте еще раз.";
+                }
+            })
+            .catch(error => {
+                document.getElementById('formResponse').innerHTML = "Произошла ошибка, попробуйте еще раз.";
+            });
+        });
+    </script>
+    
 </body>
 </html>
