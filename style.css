@@ -221,7 +221,7 @@ p {
 
 .grid-container {
     display: grid; 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     justify-content: space-between; 
     gap: 20px; 
 }
@@ -292,7 +292,7 @@ p {
 
     .card
     .achievement-card {
-        flex: 0 1 100%; 
+        flex: 0 0 100%; 
         margin: 10px 0; 
     }
 
